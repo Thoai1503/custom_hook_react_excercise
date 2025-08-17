@@ -1,7 +1,11 @@
+import { use } from "react";
 import "./App.css";
+import { useLocalStorage } from "./hook/useLocalStorage";
+import { useUpdateLogger } from "./hook/useUpdateLogger";
 
 function App() {
-  const [value, setValue] = React.useState("Hello, World!");
+  const [value, setValue] = useLocalStorage("name", "");
+  useUpdateLogger(value);
   return (
     <div className="App">
       <input
